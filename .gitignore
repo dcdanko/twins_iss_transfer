@@ -1,0 +1,5 @@
+**/.ipynb_checkpoints/*
+twins/2020_09/*.csv
+twins/2020_09/*.adjlist
+twins/2020_09/strains
+__pycache__    
