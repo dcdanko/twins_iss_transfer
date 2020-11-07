@@ -1,0 +1,25 @@
+Anoxybacillus_amylolyticus
+    Atlantibacter_hermannii
+    Bacillus_albus
+    Bacillus_tequilensis
+    Bacteroides_caccae
+    Bifidobacterium_catenulatum
+    Bifidobacterium_pseudocatenulatum
+    Brenneria_rubrifaciens
+    Campylobacter_lari
+    Cronobacter_condimenti
+    Exiguobacterium_antarcticum
+    Fusobacterium_necrophorum
+    Geobacillus_stearothermophilus
+    Gluconobacter_albidus
+    Gordonibacter_urolithinfaciens
+    Kosakonia_sacchari
+    Leptotrichia_hongkongensis
+    Pectobacterium_parmentieri
+    Serratia_proteamaculans
+    Serratia_proteamaculansBrevibacterium_siliguriense
+    Staphylococcus_sciuri
+    Staphylococcus_simiae
+    Streptococcus_viridans
+    Vibrio_alginolyticus
+    Yersinia_canariae
