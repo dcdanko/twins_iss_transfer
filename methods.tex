@@ -1,0 +1,46 @@
+
+\section{Methods}
+
+\subsection{Experimental setup and samples}
+\label{methods:setup}
+
+We analyzed 18 fecal samples from two human subjects (9 each) and 42 environmental samples from the ISS. All samples were assayed with 2x150bp DNA shotgun sequencing and analyzed as described below. Exact sample handling and processing is described in the supplementary methods.
+
+Human fecal samples were taken from two identical twins TW and HR both astronauts who had previously been in space. During the study TW was sent on a roughly 1 year flight to the ISS while HR remained on earth and functioned as a control. For many parts of this study samples from TW are grouped into pre-flight, peri-flight, and post-flight groups. As much as practically possible samples from HR were handled in an identical manner to samples from TW.
+
+We note that the sampling of the ISS was initially planned and designed separately from the sampling of the human subjects.
+
+\subsection{Sequencing}
+
+The DNA extraction protocol was adapted from the Maxwell RSC Buccal Swab DNA kit (Catalogue number AS1640: Promega Corporation, Madison WI). Briefly, 300 μl of lysis buffer and 30 μl of Proteinase K was mixed and added to each swab tube. Swab tubes were then incubated for 20 min at 56 C using a Thermo Fisher water bath, removed from the tubes, and fluid was transferred to well #1 of the Maxwell RSC Cartridge. The swab head was centrifuged using a ClickFit Microtube (Cat. # V4741), and extracted fluid was added to the corresponding well of Maxwell Cartridge, and eluted in 50 μl of provided elution buffer.
+
+Extracted DNA was taken forward to the Nextera Flex protocol by Illumina. Briefly, 30 μl of extracted DNA was taken into library prep protocol and run with 12 cycles of PCR. Libraries were cleaned up with a left sided size selection, using a bead ratio of 0.8x. The right sided size selection was omitted. Libraries were then quantified using a Thermo Fisher Qubit Fluorometer and an Advanced Analytical Fragment Analyzer. Libraries were sequenced on an Illumina HiSeqPE 50 × 2 at the Weill Cornell Epigenomics Core.
+
+
+\subsection{Processing Short Read Sequencing Data}
+
+\paragraph{Preprocessing and Taxonomic Profiling}
+We processed raw reads into taxonomic profiles for each sample using the MetaSUB Core Analysis Pipeline \citep{danko2020metasub}. This includes a preprocessing stage that consists of AdapterRemoval \citep{Schubert2016}, Human sequence removal with Bowtie2 \citep{LangmeadandStevenLSalzberg2013}, and read error correction using BayesHammer \citep{Nikolenko2013}. Subsequently reads were assigned to taxonomic groups using Kraken2 \citep{Wood2019}. We generated a table of read counts giving the number of reads assigned to each species for each sample.
+
+\paragraph{Identification of candidate species for strain level analysis}
+
+We analyzed our table of species level read counts to identify candidate lists of \textit{transient} and \textit{persistent} transfer species. We held a transient species to be one that was transferred from the ISS into the astronaut only while the astronaut remained in the ISS and which was be cleared after return to earth. We held persistent species to be those that were transferred from the ISS to the astronaut which remained after return to earth.
+
+We statistically analyzed our table of read counts using Aldex2 \citep{Fernandes2013}. Samples from the ISS environment were dropped for this analysis. Remaining samples (from astronauts) were split into two groups. The first group was the control group and consisted of all samples from TW before flight and all samples from HR at any point. The second group was the case group and consisted of all samples from TW during flight. Samples from TW after flight were assigned to the control group for analysis of transients and to the case group for analysis of persistents. Aldex2 was used to identify differentially abundant taxa between the two groups. We selected all taxa that were significantly (q < 0.05 by Welch's t-test with Benjamini Hochberg correction) more abundant in the case group than in the control group. We then filtered these two list (persistent and transient) to include only species found in the ISS samples (minimum 10 reads in 25\% of samples).  
+
+\paragraph{Strain Analysis}
+Reads were further processed for strain level analysis using the MetaSUB Core Analysis Pipeline. Given a specified organism to examine we downloaded all available reference genomes from RefSeq. If more than 100 reference genomes were available we selected 100 at random. Human-depleted reads were mapped to each genome using Bowtie2 (sensitive presets) and pileup files were generated using from alignments using samtools \citep{Li2009}.  Pileups were analyzed for coverage patterns using purpose built code (see availability for access). SNPs were identified by comparing aligned bases to reference sequences, SNP filtering was performed as part of identifying co-stranded SNPs.
+
+
+\paragraph{Identifying co-stranded SNPs}
+We developed a technique to identify SNPs that occurred on the same genetic strand. The technique is, in practice, limited to identifying co-stranded SNPs within 1kbp of on another. The technique works by formulating SNP recovery as an instance of the multi-community recovery problem. We start by building a graph of SNPs. Each SNP forms a node in the graph and is identified by its genomic position and base. Edges are added between SNPs that are found on the same read. Edges are undirected but weighted by the number of times a pair of SNPs is found on the same read. The SNP graph is then filtered to remove SNPs that occur only once as these are likely to be errors and are uninformative in any case. The remaining graph is clustered into groups of SNPs using the approach to the multi-community recovery problem by \cite{Blondel_2008}. The final result of this are sets of SNPs that are often found on the same read.
+
+This technique is similar to techniques used for phasing SNPs to one strand of a diploid genome such as \cite{Zheng2016}. The key difference between this technique and ours is that there may be more than two communities in our case and that we make only attempt to cluster proximal SNPs.
+
+
+
+
+
+
+
+

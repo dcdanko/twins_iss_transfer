@@ -1,0 +1,80 @@
+\documentclass[a4paper]{article}
+
+%% Language and font encodings
+\usepackage[english]{babel}
+\usepackage[utf8x]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{multirow}
+%% Sets page size and margins
+\usepackage[a4paper,top=1in,bottom=1in,left=1in,right=1in,marginparwidth=1in]{geometry}
+
+%% Useful packages
+\usepackage{amsmath}
+
+\usepackage{graphicx}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage[sort]{natbib}
+\usepackage[colorlinks=true, allcolors=blue]{hyperref}
+\usepackage{authblk}
+\usepackage{booktabs}
+\usepackage{flafter}
+\usepackage{lscape}
+\usepackage{afterpage}
+\usepackage{placeins}
+\usepackage{wrapfig} % Allows in-line images
+\usepackage{algorithm}
+\usepackage[noend]{algpseudocode}
+\usepackage{lineno}
+
+\FloatBarrier
+
+\title{Genetic Evidence for Selective Transfer of Microbes Between an Astronaut and the International Space Station}
+
+\author[1,2]{David C. Danko}
+\author[3]{Nitin Singh}
+\author[2]{Daniel J. Butler}
+\author[2]{Chris Mozsary}
+\author[4]{Peng Jiang}
+\author[5]{Ali Kashavarzian}
+\author[4]{Mark Maienschein-Cline}
+\author[4]{George Chlipala}
+\author[2]{Ebrahim Afshinnekoo}
+\author[2]{Francine Garrett-Bakelman}
+\author[4]{Stefan J. Green}
+\author[6]{Fred W. Turek}
+\author[6]{Martha Hotz Vitaterna}
+\author[3]{Kasthuri Venkateswaran}
+\author[2,7,$\ast$]{Christopher Mason}
+
+\affil[1]{\small 
+Tri-Institutional Computational Biology \& Medicine Program, Cornell University, NY, USA}
+\affil[2]{\small Institute for Computational Biomedicine, Department of Physiology and Biophysics, Weill Cornell Medicine of Cornell University, NY, USA}
+\affil[3]{\small{Biotechnology and Planetary Protection Group, Jet Propulsion Laboratory, California Institute of Technology, Pasadena, Los Angeles, CA}}
+\affil[4]{\small{University of Illinois at Chicago, Chicago, IL, USA}}
+\affil[5]{\small{Rush University Medical Center, Chicago, IL USA}}
+\affil[6]{\small{Northwestern University, Evanston, IL, USA}}
+\affil[7]{\small The Feil Family Brain and Mind Research Institute, Weill Cornell Medicine, NY, USA}
+
+\affil[$\ast$]{\small Corresponding author }
+
+\date{}
+\begin{document}
+\maketitle
+
+\linenumbers
+\input{abstract}
+\input{results}
+\input{methods}
+\input{end}
+
+\setcitestyle{semicolon}
+\bibliographystyle{apalike}
+\bibliography{bib}
+
+\newpage
+
+\input{sup}
+
+
+\end{document}
+
