@@ -1,11 +1,9 @@
 
 \section{Results}
 
+We collected 18 fecal and 23 oral microbiome samples from two identical twin human astronauts, one flight subject (TW, 9 stool, 6 saliva, 5 buccal) and one control who did not leave earth (HR, 9 stool, 7 saliva, 5 buccal), taken from 2014-2018. These were compared to 42 time-matched, environmental samples from the ISS that corresponded to the flight subject's mission duration. All samples were sequenced with 2x150bp read length to a mean depth of ~12-15M reads (12.01, 14.96, and 14.97M mean reads for ISS, fecal, and saliva, respectively), then aligned to the catalog of NCBI RefSeq complete microbial genomes, examined for single nucleotide polymorphisms (SNPs), and then run with strain analysis with the MetaSUB CAP pipeline and Aldex2 (see methods). 
+
 \subsection{Taxonomic profiles show evidence of continual microbial exchange}
-
-
-
-\paragraph{Novel taxa in TW match environmental and commensal microbiomes}
 
 \begin{figure}
   \begin{center}
@@ -25,7 +23,7 @@
     \includegraphics[width=0.99\textwidth]{figs/tw_flight_taxa.png}
 %	\vspace{-20pt}
 	\caption{\small{
-	    Total number of reads observed in TW for different taxa at different time points. Green vertical bars indicate the start and end of flight.
+	    Total number of reads observed in TW for different taxa not observed before flight. Green vertical bars indicate the start and end of flight. The \textit{Streptococcus phage} referenced is \textit{phiARI0004}, \textit{Xanthomonas phage} is \textit{vB XveM DIBBI},
 	}}
     \label{fig:flighttaxa}
   \end{center}
@@ -33,10 +31,16 @@
  % \vspace{1pt}
 \end{figure}
 
-Repeated sampling of a microbiome will identify taxa not observed in previous samples from the same site. This can be due either to technical or biological variation. The time series of samples taken from TW and HR match this trend. Importantly, for these time series many of the newly observed taxa in each time series were observed in samples from other sites. These samples were either from the ISS or from other body sites in TW. We identified possible sources for different newly observed taxa in each time series. For fecal samples from TW we segmented the previously unobserved taxa from each sample into four groups: taxa observed in any saliva sample taken before the given fecal samples, taxa observed in ISS samples but not observed in saliva, taxa observed in both ISS and saliva samples, and taxa that were not observed in either the ISS or the saliva. The same process was repeated for saliva samples but swapping fecal and saliva in the hierarchy.
 
-The number of previously unobserved taxa assigned to each group is shown in Figure \ref{fig:taxasource}. An analagous plot for HR can be found at Figure \ref{fig:hrtaxasource}. Each sample contains a number of unobserved taxa that matched taxa from saliva/feces or the ISS. Taxa that match taxa in the ISS can be found in TW before flight and in HR. It is unlikely these taxa are actually from the ISS (though admittedly both TW and HR had been to the ISS on previous occasions) so it is likely that these are common environmental taxa found regularly on earth. However, the fraction of taxa that match ISS taxa is increased for peri-flight samples from TW compared to other samples. On average 56\% of taxa in peri-flight samples from TW match taxa from the ISS (either ISS or Mixed) compared to 51\% for other samples. Due to the small sample size this result does not achieve significance with a p value of just 0.21. 
 
+\paragraph{Novel taxa in TW match environmental and commensal microbiomes}
+
+We first examined the proportion of taxa observed in a given sample that were not observed in a previous sample from the same donor. Any newly observed taxa in given sample (e.g. stool) was annotated relative its presence in samples from other body or environmental sites (e.g saliva). For fecal samples, we segmented the previously unobserved taxa from each sample into four groups: taxa observed in any saliva sample taken before the given fecal samples, taxa observed in ISS samples but not observed in saliva, taxa observed in both ISS and saliva samples, and taxa that were not observed in either the ISS or the saliva. The same process was repeated for saliva samples but swapping fecal and saliva in the hierarchy. As expected,the time series of samples taken from the flight subject (TW) and ground control subject (HR) showed that earlier samples exhibited a greater proportion of novel organisms \ref{fig:taxasource}. Figure \ref{fig:hrtaxasource}. 
+
+Of note, each sample contains a number of unobserved taxa that matched taxa from saliva/feces or the ISS (even before flight), indicating these are common commensal species on Earth or possibly organisms absorbed in previous missions. Indeed both astronauts had previously been in the space station across multiple missions though with a 10-fold difference in duration (TW has logged 520 total days on the ISS vs. 54 days for HR). Interestingly, when we examined the the fraction of taxa that match ISS taxa in pre-flight samples from TW compared to other samples from HR, a higher average rate ( 56\% ) of ISS-matching taxa was observed in pre-flight samples for TW relative to (HR  51\%), although not significant (p-value = 0.21). The fraction of taxa that matched different environments are listed in Table \ref{tbl:sourcepercents}. For both saliva and fecal microbiomes the large majority of taxa at each time point had already been observed in a previous sample from that site.  
+
+A small number of taxa were never observed in any pre-flight sample from any body site but were observed in peri- and post-flight samples. We filtered for taxa that had no reads observed in pre-flight samples and had at least ten reads in at least two peri- or post-flight samples. These taxa were further filtered for taxa that were observed in at least two ISS samples. The resulting list included five taxa: two viral genera, two viral species (both phage), and one bacterial species: \textit{Rickettsia australis} (Figure \ref{fig:flighttaxa}). Given the generally low abundance of these taxa we cannot definitively rule out that they were present at an undetectable low threshold pre-flight. For comparison only 2 taxa (both viruses) met the above requirements but were not identified in ISS samples.
+ 
 \begin{table}[]
 \centering
 \caption{This table gives the average overlap between emergent taxa in fecal and saliva microbiomes and microbiomes in other sites.}
@@ -56,11 +60,6 @@ Taxa not identified in another site &  35.5 &  29.1 \\
 \end{tabular}
 \end{table}
 
-On its own these data do not definitively establish transfer between the ISS environment and TW. Rather these let us estimate a boundary for the fraction of taxa that could be transferred from different sources. The fraction of taxa that matched different environments are listed in Table \ref{tbl:sourcepercents}. For both saliva and fecal microbiomes the large majority of taxa at each time point had already been observed in a previous sample from that site.  
-
-A small number of taxa were never observed in any pre-flight sample from any body site but were observed in peri and post-flight samples. We filtered for taxa that had no reads observed in pre-flight samples and had at least ten reads in at least two peri or post-flight samples. These taxa were further filtered for taxa that were observed in at least two ISS samples. The resulting list included five taxa: two viral genera, two viral species (both phage), and one bacterial species: Rickettsia australis (Figure \ref{fig:flighttaxa}). Given the generally low abundance of these taxa we cannot definitively rule out that they were present at an undetectable low threshold pre-flight.
-
-
 \paragraph{Emergence of novel taxa in gut microbiomes exceeds repeated sampling} 
 
 \begin{figure}
@@ -77,23 +76,13 @@ A small number of taxa were never observed in any pre-flight sample from any bod
  % \vspace{1pt}
 \end{figure}
 
-In most cases taking multiple samples of the same microbiome will identify taxa that were not observed in previous samples even if the microbiome has not changed. This is largely because repeated sampling can identify low abundance species which were dropped out of previous samples and because different sample preparation techniques can yield different sets of taxa. A series of samples taken from a microbiome that is exchanging taxa with an external environment will have an additional source of new taxa. These taxa would not be identified in earlier samples because they were not present. We investigated whether time series from TW and HR would identify more new taxa than repeated assays on an unchanging sample.
-
-We compared time series of fecal microbiome samples from TW and HR to 243 repeated samples (technical replicates) taken from a single fecal source sample. These 243 samples were processed with different lysis techniques which could lead to different taxonomic profiles \citep{Sasada2020}. We took 100,000 random subsets of 9 (the same number of samples in the time series for TW and HR) samples from the set of 243. WE treated each set of 9 samples as an ordered time series. We counted the number of taxa in each sample that had not been observed in any previous sample for each subset and normalized the number of taxa by the total number of taxa in the first sample. We repeated the same process for the time series from TW and HR using the actual order in which the samples were taken.
-
-We compared the number of new taxa in TW and HR to the random subsets (Figure \ref{fig:taxarepeated}). We counted the number of random subsets that had more taxa at each time point than were identified in TW and HR. The time series for HR had more taxa than 99,971 (p 2.9e-4) random subsets, TW had more taxa than 99,990 (p 1e-4) subsets. This result shows that the time series for TW and HR both consistently had more taxa than would be expected from  resampling an unchanged fecal sample. This implies that the microbiomes from TW and HR are dynamic continually producing previously unobserved taxa.
-
-We note that many of the 100,000 subsets had more newly observed taxa at some (but not all) of the time points. This is particularly true for early time points and is consistent with the idea that different taxa can be identified by different sample preparation techniques. Importantly the number of new taxa that were observed in subsets dropped off quickly for later time points as the subsets reached saturation. Subsets generally showed an adversarial selection where many new taxa at one time point would lead to fewer new taxa at later time points. The 243 fecal replicates had similar read counts to the time series from HR and TW. Fecal samples from the twins had about 56M classified reads on average compared to about 44M for the fecal replicates.
+To place these taxonomic trends in context, we investigated whether the sampling time series from TW and HR would identify more new taxa than repeated assays on an unchanging fecal sample. We compared the fecal microbiome time series of TW and HR to 243 repeated samples taken from a single fecal sample \citep{Sasada2020}, using 100,000 random sets of 9 samples (to match the twins' set size). The number of taxa in each sample that had not been observed in any previous sample were counted for each subset and normalized by the total number of taxa in the first sample. The time series for HR showed significantly more novel taxa than 99,971 (p 2.9e-4) random stool subsets, and TW had even more novel taxa than 99,990 (p 1e-4) random subsets (Figure \ref{fig:taxarepeated}). These results shows that the time series for TW and HR both consistently had more taxa than would be expected from resampling an unchanged fecal sample. 
 
 \paragraph{Evidence of higher transfer rates on board the ISS}
 
-We calculated taxonomic diversity using Shannon's entropy for species profiles of each sample (Figure \ref{fig:taxadiv}). For both fecal and saliva samples from TW the highest diversity was observed during flight. This was not observed for HR. However, given the small number of samples it is unlikely that samples taken during flight could be shown to be significantly more diverse.
+We next calculated taxonomic diversity using Shannon's entropy for species profiles of each sample (Figure \ref{fig:taxadiv}). For both fecal and saliva samples from TW, the highest diversity was observed during flight, and this trend was not observed for HR in the same time intervals. We identified a significant increase in the number of previously unobserved taxa for samples taken from TW during flight (Figure \ref{fig:taxaflux}) compared to random permutations. 
 
-% In most settings repeated sampling of the same microbiome will yield species which were not identified in previous sampling. This can be due, primarily, to two factors: natural variation and evolution of a microbiome or experimental error and dropout of species. The latter is likely to be a consistent error given consistent experimental setting while the former can vary based on external conditions.  
-
- For time series of buccal, fecal, and saliva samples from TW and HR. We identified species which had not previously been observed in any sample. The number of new species discovered in each sample varied by time point. Later samples generally had fewer new species (as expected) though with substantial variation.
-
-We identified a significant increase in the number of previously unobserved taxa for samples taken from TW during flight (Figure \ref{fig:taxaflux}). To demonstrate this we performed a permutation test. We started by establishing the number of previously unobserved species found at each time point in the actual data from TW. We then randomly shuffled and relabeled these samples and counted species again. We noted if the number of species observed 'during flight' in the shuffled data was higher than the real data and repeated the shuffling 10,000 times (Caveat: we only had three samples for the buccal microbiome and all 6 permutations were tried). For the fecal microbiome the actual number of observed taxa was higher than the shuffled data in 96.7\% of cases, for saliva 98.2\% of cases and for buccal the observed was higher than all other permutations. Repeating the same procedure on data from HR ('flight' status was arbitrarily assigned to the second, third, and fourth samples)  we observed 45.9\% for feces 98.2\% for saliva, and 80.1\% for buccal (more buccal samples were available for HR). Results were similar when the above procedure was repeated only with taxa found in ISS environmental samples.
+To further characterize the significance of such transfer relative to the sampling set and the source, we performed a series of permutation tests. We first established the number of previously unobserved species found at each time point in the actual data from TW. We then randomly shuffled and relabeled these samples and counted species again for a total of 10,000 random permutations. We then counted the number of permutations where the number of species observed 'during flight' in the shuffled data was higher than the real data . For the fecal microbiome the actual number of observed taxa was higher than the shuffled data in 96.7\% of cases, for saliva 98.2\% of cases and for buccal the observed was higher than all other permutations. Repeating the same procedure on data from HR ('flight' status was arbitrarily assigned to the second, third, and fourth samples)  we observed 45.9\% for feces 98.2\% for saliva, and 80.1\% for buccal (more buccal samples were available for HR). Results were similar when the above procedure was repeated only with taxa found in ISS environmental samples.
 
 \subsection{Strain level variation confirms microbial transfer}
 
@@ -101,14 +90,9 @@ We identified a significant increase in the number of previously unobserved taxa
 
 \paragraph{Novel genome regions in flight found in environmental and commensal microbiomes}
 
-We selected a set of species that were significantly more abundant during and after flight in TW than they were before flight. We then mapped reads to reference genomes from these taxa and observed the results. We looked at the coverage of reference genomes at each stage of flight (concatenating samples from the same stage) and in the ISS.  Example coverage plots for \textit{Fusobacterium necrophorum}  and \textit{Serratia proteamaculans} are shown in Figure \ref{fig:fnecro} and Figure \ref{fig:sprota} respectively.
+Given the higher overall transfer rate of species on the ISS, we next examined the strain emergence and persistence (post-flight) of such species. For all species showing significantly greater abundance during and after flight in TW than before flight,  reads were mapped to known reference strains from these taxa. We looked at the coverage of reference genomes at each stage of flight (concatenating samples from the same stage) and in the ISS and grouped regions into three categories: regions which were covered before flight, regions that were covered before flight in either gut or saliva samples but not observed in the other until flight, and regions that were not observed in either gut or saliva samples until flight but were found in the environment. \textit{Fusobacterium necrophorum}  and \textit{Serratia proteamaculans} Figure \ref{fig:fnecro} and Figure \ref{fig:sprota}. The total size of these genomic regions for all tested taxa are listed in  Table \ref{tbl:covcounts}.
 
-For each species we grouped regions into three categories: regions which were covered before flight, regions that were covered before flight in either gut or saliva samples but not observed in the other until flight, and regions that were not observed in either gut or saliva samples until flight but were found in the environment. The total size of these regions for all tested taxa are listed in  Table \ref{tbl:covcounts}.
-
-For the selected taxa on average environmental transfer regions were 32.2\% of the size of pre-flight regions. While gut-saliva transfers were 19.9\%. There was wide variation in these numbers for individual taxa. The taxa with the (proportionally) largest transferred regions, \textit{Cronobacter condimenti}, had 55.9\% gut-saliva transfer and 123.7\% environmental transfer. 
-
-The presence of (in some taxa) large genomic regions that were not covered until flight strongly suggests that individual species are undergoing flux with new strains and genes migrating into commensal microbiomes. These regions match regions found in the ISS or in other commensal microbiomes further suggesting a source for the new regions.
-
+For the selected taxa, the average environmental transfer of genomic regions were 32.2\% of the size of pre-flight regions, whereas gut-saliva transfers were lower at 19.9\%. The taxa with the (proportionally) largest transferred regions \textit{Cronobacter condimenti}, had 55.9\% gut-saliva transfer and 123.7\% environmental transfer. The presence of (in some taxa) large genomic regions that were not covered until flight strongly suggests that individual species are undergoing flux with new strains and genes migrating into commensal microbiomes. 
 
 \paragraph{Microbial SNPs match environmental and commensal microbiomes}
 
@@ -129,8 +113,54 @@ The presence of (in some taxa) large genomic regions that were not covered until
 \end{figure}
 
 
-We identified co-occurring clusters of SNPs in the selected taxa listed above in all samples from TW, HR, and the ISS. We refer to these clusters as SNP barcodes. An example of two such barcodes can be seen in Figure \ref{fig:bcsources}A. We matched SNP barcodes taken in samples taken from TW during flight (concatenated together) to possible sources in pre-flight TW samples and ISS samples. For peri-flight fecal samples we considered four groups: SNP barcodes found in pre-flight fecal samples, barcodes found in pre-flight saliva but not fecal samples, barcodes found in the ISS but neither saliva nor fecal, and barcodes not observed in any other group. Saliva samples were split analogously save that fecal and saliva sources were swapped.
+Once the candidate genomic regions were identified, we next mapped co-occurring clusters of SNPs (haplotypes) in the selected taxa listed above in all samples from TW, HR, and the ISS (Figure \ref{fig:bcsources}. We matched microbial haplotypes from TW during flight to possible sources in pre-flight TW samples and ISS samples. Pre-flight fecal samples we considered four groups: haplotypes found in pre-flight fecal samples, haplotypes found in pre-flight saliva but not fecal samples, haplotypes found in the ISS but neither saliva nor fecal, and haplotypes not observed in any other group. 
 
-The pre-flight sources of SNP barcodes varied by the species being investigated (Figure \ref{fig:bcsources}B). Some species, such as \textit{Cronobacter condimenti} showed an apparent flip of strains from the gut microbiome to saliva and vice versa. Other taxa, like \textit{Atlantibacter hermannii}, showed a large fraction of barcodes that matched environmental barcodes in the gut microbiome. Some taxa, like \textit{Bifidocaterium catenulatum} showed little similarity to any potential external source.
+The pre-flight sources of haplotypes varied by the species being investigated (Figure \ref{fig:bcsources}B). Some species, such as \textit{Cronobacter condimenti} showed an apparent flip of strains from the gut microbiome to saliva and vice versa. Other taxa, like \textit{Atlantibacter hermannii}, showed a large fraction of haplotypes that matched environmental haplotypes in the gut microbiome. Some taxa, like \textit{Bifidocaterium catenulatum} showed little similarity to any potential external source.
 
-Taken together matching regions and SNPs strongly supports the idea that novel taxa in peri-flight commensal microbiomes from TW could come from the environment or from other commensal microbiomes. The size of transferred regions and number of SNPs suggests that taxa transfer between commensal microbiomes more frequently than they transfer from the environment to commensal microbiomes. However, these rates may prove to be anomalous for either TW, habitation in the ISS, or both.
+
+
+\subsection{Transfer Case Study: Serratia Proteamaculans}
+
+\paragraph{SP is a candidate persistent transfer}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.99\textwidth]{figs/sp_abundance.png}
+%	\vspace{-20pt}
+	\caption{\small{
+	    Relative abundance of \textit{Serratia proteamaculans} in fecal samples from TW and HR. Relative abundance is given in units of parts per million.
+	}}
+    \label{fig:abundance}
+  \end{center}
+%  \vspace{-20pt}
+ % \vspace{1pt}
+\end{figure}
+
+We identified SP as a candidate persistent transfer, a species that was found in ISS environmental samples and was significantly more abundant in peri and post flight fecal samples from TW than other fecal samples. As a whole SP was only found at low levels in fecal samples in TW pre-flight, was significantly more abundant during flight, and dropped to an intermediate level after flight (Figure \ref{fig:abundance}). No major variation in abundance was observed for the control twin HR. SP was roughly uniformly abundant in the saliva before during and after flight.
+
+\paragraph{Regions of the SP genome are found in TW fecal samples only after arrival at the ISS}
+
+\begin{figure}
+  \begin{center}
+    \includegraphics[width=0.99\textwidth]{figs/sprota_read_recruit.png}
+%	\vspace{-20pt}
+	\caption{\small{
+	    Coverage of candidate persistent transfer regions of the \textit{Serratia proteamaculans} genome.
+	}}
+    \label{fig:sprota}
+  \end{center}
+%  \vspace{-20pt}
+ % \vspace{1pt}
+\end{figure}
+
+We identified regions of the SP genome which appeared in fecal samples after TW was on board the ISS. We found three such regions totaling about 1.5kbp. The abundance of these regions roughly matched the overall pattern seen for SP. Very low or undetectable pre-flight, a high during flight, and an intermediate level post flight (Figure \ref{fig:sprota}). These regions were all well covered from ISS environmental samples.
+
+Total coverage of the SP genome in TW from all available samples 29.2kbp. Before flight 8.9kbp was covered, during 17.2kbp and after 19.0kbp. However some of these regions were either quite small or not covered in both peri and post flight. As such 1.5kbp represents a reasonable fraction of the amount of SP genome covered in TW but should only be interpreted as evidence for the transfer of particular genes. 
+
+
+\subsection{SNPs in post-arrival regions match a secondary environmental strain}
+
+We analyzed one of the above regions (of about 250bp) for SNPs (Figure \ref{fig:bcsources}A) and identified SNPs in samples from TW which were either not found in the ISS environment or were found at different proportions. We identified 9 SNPs in this region during flight that were found in fewer than half of the ISS environmental samples. Of these 9 SNPs 6 were found after the conclusion of flight. We note that all of these 9 SNPs were found in ISS environmental samples at some proportion.
+
+Next we used the SNP clustering technique described in the methods to determine if the 9 peri-flight SNPs we identified could come from the same strain. We identified corresponding groups of 8 SNPs in TW and 9 SNPs in the ISS environment. The 8 SNP group in TW included 8 out of the 9 peri-flight SNPs. The 9 SNP group from the ISS environment included these 8 SNPs as well as one SNP not identified in TW. This leads us to the conclusion that the strain found in TW likely represented a secondary strain in the ISS environment. 
+
